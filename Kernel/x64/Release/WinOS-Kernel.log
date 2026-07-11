@@ -1,18 +1,14 @@
-﻿  Assembling CrucialInternals\GDT-assembly.asm...
-  Assembling CrucialInternals\IDT-assembly.asm...
-cl : command line  warning D9025: overriding '/sdl' with '/GS-'
-  GDT.cpp
-  IDT.cpp
-  Drivers.cpp
+﻿cl : command line  warning D9025: overriding '/sdl' with '/GS-'
   main.cpp
-C:\Users\AJXS\Documents\WinOS-Dev\VisualUefi\WinOS\Kernel\main.cpp(65,47): warning C4018: '<': signed/unsigned mismatch
-C:\Users\AJXS\Documents\WinOS-Dev\VisualUefi\WinOS\Kernel\main.cpp(65,92): warning C4018: '<': signed/unsigned mismatch
-C:\Users\AJXS\Documents\WinOS-Dev\VisualUefi\WinOS\Kernel\main.cpp(95,55): warning C4018: '<': signed/unsigned mismatch
-C:\Users\AJXS\Documents\WinOS-Dev\VisualUefi\WinOS\Kernel\main.cpp(95,100): warning C4018: '<': signed/unsigned mismatch
+C:\Users\AJXS\Documents\WinOS-Dev\VisualUefi\WinOS\Kernel\main.cpp(174,47): warning C4018: '<': signed/unsigned mismatch
+C:\Users\AJXS\Documents\WinOS-Dev\VisualUefi\WinOS\Kernel\main.cpp(174,92): warning C4018: '<': signed/unsigned mismatch
+C:\Users\AJXS\Documents\WinOS-Dev\VisualUefi\WinOS\Kernel\main.cpp(196,55): warning C4018: '<': signed/unsigned mismatch
+C:\Users\AJXS\Documents\WinOS-Dev\VisualUefi\WinOS\Kernel\main.cpp(196,100): warning C4018: '<': signed/unsigned mismatch
   GDT.obj : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
 LINK : warning LNK4216: Exported entry point KernelMain
      Creating library C:\Users\AJXS\Documents\WinOS-Dev\VisualUefi\WinOS\x64\Release\WinOS-Kernel.lib and object C:\Users\AJXS\Documents\WinOS-Dev\VisualUefi\WinOS\x64\Release\WinOS-Kernel.exp
   Generating code
   Finished generating code
+main.obj : warning LNK4210: .CRT section exists; there may be unhandled static initializers or terminators
   WinOS-Kernel.vcxproj -> C:\Users\AJXS\Documents\WinOS-Dev\VisualUefi\WinOS\x64\Release\WinOS-Kernel.bin
           1 file(s) copied.

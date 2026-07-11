@@ -30,6 +30,7 @@
     <ClInclude Include="CrucialInternals\PCI.h" />
     <ClInclude Include="CrucialInternals\PMM.h" />
     <ClInclude Include="CrucialInternals\VMM.h" />
+    <ClInclude Include="Drivers\Audio\AudioDriver.h" />
     <ClInclude Include="HIDs\HIDs.h" />
     <ClInclude Include="WinOSBaseAssets\WinOS-Logo.h" />
     <ClInclude Include="WinOSBaseAssets\WinOS-Throbber.h" />

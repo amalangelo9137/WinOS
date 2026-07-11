@@ -3,8 +3,11 @@
 #include "PMM.h"
 #include <intrin.h>
 
-#define PT_PRESENT  (1ULL << 0)
-#define PT_WRITABLE (1ULL << 1)
+#define PT_PRESENT      (1ULL << 0)
+#define PT_WRITABLE     (1ULL << 1)
+#define PT_WRITE_THROUGH (1ULL << 3)  // PWT bit
+#define PT_CACHE_DISABLE (1ULL << 4)  // PCD bit
+#define PT_PAT_BIT       (1ULL << 7)  // PAT bit in lowest level page table entry
 
 extern PhysicalMemoryManager PMM;
 
@@ -67,6 +70,31 @@ public:
 
         // Write the physical address into the base Page Table entry
         pt[pt_idx] = (p_addr & 0x000FFFFFFFFFF000ULL) | PT_PRESENT | PT_WRITABLE;
+
+        FlushTLB(virtual_addr);
+        return true;
+    }
+
+    bool MapMemoryEx(void* virtual_addr, void* physical_addr, uint64_t cache_flags) {
+        uint64_t v_addr = (uint64_t)virtual_addr;
+        uint64_t p_addr = (uint64_t)physical_addr;
+
+        size_t pml4_idx = GetIndex(v_addr, 3);
+        size_t pdpt_idx = GetIndex(v_addr, 2);
+        size_t pd_idx = GetIndex(v_addr, 1);
+        size_t pt_idx = GetIndex(v_addr, 0);
+
+        uint64_t* pdpt = GetNextTable(m_PML4, pml4_idx);
+        if (!pdpt) return false;
+
+        uint64_t* pd = GetNextTable(pdpt, pdpt_idx);
+        if (!pd) return false;
+
+        uint64_t* pt = GetNextTable(pd, pd_idx);
+        if (!pt) return false;
+
+        // Combine base routing flags with our custom caching flags (like Write-Combining)
+        pt[pt_idx] = (p_addr & 0x000FFFFFFFFFF000ULL) | PT_PRESENT | PT_WRITABLE | cache_flags;
 
         FlushTLB(virtual_addr);
         return true;
