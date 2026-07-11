@@ -1,0 +1,4 @@
+C:\Users\AJXS\Documents\WinOS-Dev\VisualUefi\WinOS\Kernel\CrucialInternals\GDT.cpp;C:\Users\AJXS\Documents\WinOS-Dev\VisualUefi\WinOS\Kernel\x64\Release\GDT.obj
+C:\Users\AJXS\Documents\WinOS-Dev\VisualUefi\WinOS\Kernel\CrucialInternals\IDT.cpp;C:\Users\AJXS\Documents\WinOS-Dev\VisualUefi\WinOS\Kernel\x64\Release\IDT.obj
+C:\Users\AJXS\Documents\WinOS-Dev\VisualUefi\WinOS\Kernel\HIDs\Drivers.cpp;C:\Users\AJXS\Documents\WinOS-Dev\VisualUefi\WinOS\Kernel\x64\Release\Drivers.obj
+C:\Users\AJXS\Documents\WinOS-Dev\VisualUefi\WinOS\Kernel\main.cpp;C:\Users\AJXS\Documents\WinOS-Dev\VisualUefi\WinOS\Kernel\x64\Release\main.obj

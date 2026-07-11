@@ -1,0 +1,73 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\AJXS\\Documents\\WinOS-Dev\\VisualUefi\\WinOS\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{863F20AB-344D-48FD-9982-15EF853EBF2E}|EFI\\WinOS-EFI.vcxproj|C:\\Users\\AJXS\\Documents\\WinOS-Dev\\VisualUefi\\WinOS\\EFI\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{863F20AB-344D-48FD-9982-15EF853EBF2E}|EFI\\WinOS-EFI.vcxproj|solutionrelative:EFI\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CDFBF006-BE3F-4CF4-87CD-F0FE771FF41E}|Kernel\\WinOS-Kernel.vcxproj|C:\\Users\\AJXS\\Documents\\WinOS-Dev\\VisualUefi\\WinOS\\Kernel\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CDFBF006-BE3F-4CF4-87CD-F0FE771FF41E}|Kernel\\WinOS-Kernel.vcxproj|solutionrelative:Kernel\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{863F20AB-344D-48FD-9982-15EF853EBF2E}|EFI\\WinOS-EFI.vcxproj|C:\\USERS\\AJXS\\DOCUMENTS\\WINOS-DEV\\VISUALUEFI\\WINOS\\SHARED.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{863F20AB-344D-48FD-9982-15EF853EBF2E}|EFI\\WinOS-EFI.vcxproj|solutionrelative:SHARED.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\AJXS\\Documents\\WinOS-Dev\\VisualUefi\\WinOS\\Kernel\\main.cpp",
+              "RelativeDocumentMoniker": "Kernel\\main.cpp",
+              "ToolTip": "C:\\Users\\AJXS\\Documents\\WinOS-Dev\\VisualUefi\\WinOS\\Kernel\\main.cpp",
+              "RelativeToolTip": "Kernel\\main.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-07-11T11:21:28.801Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.c",
+              "DocumentMoniker": "C:\\Users\\AJXS\\Documents\\WinOS-Dev\\VisualUefi\\WinOS\\EFI\\main.c",
+              "RelativeDocumentMoniker": "EFI\\main.c",
+              "ToolTip": "C:\\Users\\AJXS\\Documents\\WinOS-Dev\\VisualUefi\\WinOS\\EFI\\main.c",
+              "RelativeToolTip": "EFI\\main.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-07-11T11:21:33.487Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Shared.h",
+              "DocumentMoniker": "C:\\Users\\AJXS\\Documents\\WinOS-Dev\\VisualUefi\\WinOS\\Shared.h",
+              "RelativeDocumentMoniker": "Shared.h",
+              "ToolTip": "C:\\Users\\AJXS\\Documents\\WinOS-Dev\\VisualUefi\\WinOS\\Shared.h",
+              "RelativeToolTip": "Shared.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-07-11T11:28:30.371Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
