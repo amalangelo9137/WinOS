@@ -1,8 +1,8 @@
 ﻿  main.c
 LINK : warning LNK4315: /DEBUG:FASTLINK is no longer supported. Using /DEBUG:FULL instead. Use a VS 2022 toolchain to continue building with /DEBUG:FASTLINK
   Generating code
-  Previous IPDB not found, fall back to full compilation.
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
   All 43 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
-  WinOS-EFI.vcxproj -> C:\Users\AJXS\Documents\WinOS-Dev\VisualUefi\WinOS\x64\Release\WinOS-EFI.efi
+  WinOS-EFI.vcxproj -> C:\Users\AJXS\Documents\VisualUefi\WinOS\x64\Release\WinOS-EFI.efi
           1 file(s) copied.

@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\AJXS\Documents\WinOS-Dev\VisualUefi\WinOS\x64\Release\WinOS-Kernel.bin</FullPath>
+      <FullPath>C:\Users\AJXS\Documents\VisualUefi\WinOS\x64\Release\WinOS-Kernel.bin</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
