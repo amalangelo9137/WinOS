@@ -1,0 +1,37 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\ajxs\\documents\\visualuefi\\edk2\\mdepkg\\include\\industrystandard\\peimage.h",
+        "ProvidedModule": "",
+        "Includes": [
+            "c:\\users\\ajxs\\documents\\visualuefi\\edk-ii\\baselib\\vshacks.h",
+            "c:\\users\\ajxs\\documents\\visualuefi\\edk2\\mdepkg\\include\\uefi.h",
+            "c:\\users\\ajxs\\documents\\visualuefi\\edk2\\mdepkg\\include\\uefi\\uefibasetype.h",
+            "c:\\users\\ajxs\\documents\\visualuefi\\edk2\\mdepkg\\include\\base.h",
+            "c:\\users\\ajxs\\documents\\visualuefi\\edk2\\mdepkg\\include\\x64\\processorbind.h",
+            "c:\\users\\ajxs\\documents\\visualuefi\\edk2\\mdepkg\\include\\uefi\\uefispec.h",
+            "c:\\users\\ajxs\\documents\\visualuefi\\edk2\\mdepkg\\include\\uefi\\uefimultiphase.h",
+            "c:\\users\\ajxs\\documents\\visualuefi\\edk2\\mdepkg\\include\\guid\\wincertificate.h",
+            "c:\\users\\ajxs\\documents\\visualuefi\\edk2\\mdepkg\\include\\protocol\\devicepath.h",
+            "c:\\users\\ajxs\\documents\\visualuefi\\edk2\\mdepkg\\include\\guid\\pcansi.h",
+            "c:\\users\\ajxs\\documents\\visualuefi\\edk2\\mdepkg\\include\\industrystandard\\bluetooth.h",
+            "c:\\users\\ajxs\\documents\\visualuefi\\edk2\\mdepkg\\include\\industrystandard\\acpi60.h",
+            "c:\\users\\ajxs\\documents\\visualuefi\\edk2\\mdepkg\\include\\industrystandard\\acpi51.h",
+            "c:\\users\\ajxs\\documents\\visualuefi\\edk2\\mdepkg\\include\\industrystandard\\acpi50.h",
+            "c:\\users\\ajxs\\documents\\visualuefi\\edk2\\mdepkg\\include\\industrystandard\\acpi40.h",
+            "c:\\users\\ajxs\\documents\\visualuefi\\edk2\\mdepkg\\include\\industrystandard\\acpi30.h",
+            "c:\\users\\ajxs\\documents\\visualuefi\\edk2\\mdepkg\\include\\industrystandard\\acpi20.h",
+            "c:\\users\\ajxs\\documents\\visualuefi\\edk2\\mdepkg\\include\\industrystandard\\acpi10.h",
+            "c:\\users\\ajxs\\documents\\visualuefi\\edk2\\mdepkg\\include\\industrystandard\\acpiaml.h",
+            "c:\\users\\ajxs\\documents\\visualuefi\\edk2\\mdepkg\\include\\protocol\\simpletextin.h",
+            "c:\\users\\ajxs\\documents\\visualuefi\\edk2\\mdepkg\\include\\protocol\\simpletextinex.h",
+            "c:\\users\\ajxs\\documents\\visualuefi\\edk2\\mdepkg\\include\\protocol\\simpletextout.h",
+            "c:\\users\\ajxs\\documents\\visualuefi\\edk2\\mdepkg\\include\\uefi\\uefipxe.h",
+            "c:\\users\\ajxs\\documents\\visualuefi\\edk2\\mdepkg\\include\\uefi\\uefigpt.h",
+            "c:\\users\\ajxs\\documents\\visualuefi\\edk2\\mdepkg\\include\\uefi\\uefiinternalformrepresentation.h",
+            "c:\\users\\ajxs\\documents\\visualuefi\\edk2\\mdepkg\\include\\guid\\hiiformmapmethodguid.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

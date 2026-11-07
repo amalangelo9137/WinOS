@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "C:\\Users\\AJXS\\Documents\\VisualUefi\\WinOS\\x64\\Release\\obj\\WinOS-EFI\\Shared.obj",
+            "outputs": [
+                "C:\\Users\\AJXS\\Documents\\VisualUefi\\WinOS\\x64\\Release\\obj\\WinOS-EFI\\Shared.h.obj.dt.module.json",
+                "C:\\Users\\AJXS\\Documents\\VisualUefi\\WinOS\\x64\\Release\\obj\\WinOS-EFI\\Shared.h.obj.dt.d.json"
+            ],
+            "requires": []
+        }
+    ]
+}

@@ -19,14 +19,23 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AJXS\Bits\Bits.cpp" />
+    <ClCompile Include="AJXS\Math\Math.cpp" />
+    <ClCompile Include="AJXS\Math\Memory\Memory.cpp" />
     <ClCompile Include="CrucialInternals\GDT.cpp" />
     <ClCompile Include="CrucialInternals\IDT.cpp" />
+    <ClCompile Include="CrucialInternals\MathFunctions.cpp" />
     <ClCompile Include="HIDs\Drivers.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AJXS\AJXS.h" />
+    <ClInclude Include="AJXS\Bits\Bits.h" />
+    <ClInclude Include="AJXS\Math\Math.h" />
+    <ClInclude Include="AJXS\Math\Memory\Memory.h" />
     <ClInclude Include="CrucialInternals\GDT.h" />
     <ClInclude Include="CrucialInternals\IDT.h" />
+    <ClInclude Include="CrucialInternals\MathFunctions.h" />
     <ClInclude Include="CrucialInternals\PCI.h" />
     <ClInclude Include="CrucialInternals\PMM.h" />
     <ClInclude Include="CrucialInternals\VMM.h" />

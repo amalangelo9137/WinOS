@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "revision": 0,
+    "rules": [
+        {
+            "primary-output": "C:\\Users\\AJXS\\Documents\\VisualUefi\\WinOS\\x64\\Release\\obj\\WinOS-EFI\\PeImage.obj",
+            "outputs": [
+                "C:\\Users\\AJXS\\Documents\\VisualUefi\\WinOS\\x64\\Release\\obj\\WinOS-EFI\\PeImage.h.obj.dt.module.json",
+                "C:\\Users\\AJXS\\Documents\\VisualUefi\\WinOS\\x64\\Release\\obj\\WinOS-EFI\\PeImage.h.obj.dt.d.json"
+            ],
+            "requires": []
+        }
+    ]
+}

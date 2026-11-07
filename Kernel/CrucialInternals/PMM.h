@@ -3,7 +3,7 @@
 
 #define PAGE_SIZE 4096
 
-// Explicitly define the standard x86_64 EFI memory descriptor layout layout internally
+// Explicitly define the standard x86_64 EFI memory descriptor layout internally
 struct KERNEL_EFI_MEMORY_DESCRIPTOR {
     uint32_t Type;
     uint32_t Pad;
@@ -15,15 +15,15 @@ struct KERNEL_EFI_MEMORY_DESCRIPTOR {
 
 class PhysicalMemoryManager {
 private:
-    uint8_t* m_Bitmap;
-    size_t   m_BitmapSize;
-    size_t   m_TotalPages;
+    uint8_t* m_Bitmap; // the bitmap
+    size_t   m_BitmapSize; // size of the bitmap
+    size_t   m_TotalPages; // number of pages made
 
     void SetBit(size_t page_index) {
         m_Bitmap[page_index / 8] |= (1 << (page_index % 8));
     }
 
-    void ClearBit(size_t page_index) {
+    void ClearBit(size_t page_index) { 
         m_Bitmap[page_index / 8] &= ~(1 << (page_index % 8));
     }
 

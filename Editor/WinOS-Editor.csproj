@@ -1,26 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net10.0-windows</TargetFramework>
-    <RootNamespace>WinOS_Editor</RootNamespace>
+	<RootNamespace>WinOS_Editor</RootNamespace>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
-    <ApplicationIcon>WinOS-Editor-Logo.ico</ApplicationIcon>
-    <LangVersion>preview</LangVersion>
+    <ApplicationIcon>WinOS-Editor-Icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="WinOS-Editor-BG.png" />
-    <None Remove="WinOS-Logo.png" />
+    <None Remove="demo.cpp" />
+    <None Remove="Templates\demo.cpp" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="WinOS-Editor-Logo.ico" />
+    <Content Include="Templates\demo.cpp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WinOS-Editor-Icon.ico" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Resource Include="WinOS-Editor-BG.png" />
-    <Resource Include="WinOS-Logo.png" />
-  </ItemGroup>
 </Project>

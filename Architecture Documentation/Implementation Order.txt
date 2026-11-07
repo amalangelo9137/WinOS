@@ -1,0 +1,33 @@
+---------- Chapter I ----------
+
+PHASE 0
+Architecture Research
+
+PHASE 1
+Build Framework Studio
+
+PHASE 2
+Connect Editor internal APIs to WinOS-Kernel
+
+PHASE 3
+Build base frameworks (WinOS, WinOS.UI, WinOS.Graphics etc.)
+
+PHASE 4
+Build Application Studio
+
+PHASE 5
+Get Studio internal APIs from exported frameworks
+
+PHASE 6
+Polish all WinOS subprojects for next Chapter phases
+
+-------------------------------
+
+---------- Chapter II ----------
+
+PHASE 7
+Build WinOS : On Time Planning; no drafting here.
+
+--------------------------------
+
+

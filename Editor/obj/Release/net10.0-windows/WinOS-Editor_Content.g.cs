@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("winos-editor-logo.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("templates/demo.cpp")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("winos-editor-icon.ico")]
 
 

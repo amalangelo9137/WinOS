@@ -1,5 +1,6 @@
 #include <intrin.h>
 #include <cstdint>
+#include "AJXS/AJXS.h"
 
 // assets
 #include "WinOSBaseAssets/WinOS-Logo.h"

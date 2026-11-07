@@ -1,11 +1,19 @@
-﻿cl : command line  warning D9025: overriding '/sdl' with '/GS-'
+﻿  Assembling CrucialInternals\GDT-assembly.asm...
+  Assembling CrucialInternals\IDT-assembly.asm...
+cl : command line  warning D9025: overriding '/sdl' with '/GS-'
+  Bits.cpp
+  Math.cpp
+  Memory.cpp
+  GDT.cpp
+  IDT.cpp
+C:\Users\AJXS\Documents\VisualUefi\WinOS\Kernel\AJXS\Math\Math.h(25,18): error C2129: static function 'uint64_t Math::Ceil(uint64_t,uint64_t)' declared but not defined
+  (compiling source file 'AJXS/Math/Memory/Memory.cpp')
+      C:\Users\AJXS\Documents\VisualUefi\WinOS\Kernel\AJXS\Math\Math.h(25,18):
+      see declaration of 'Math::Ceil'
+  
+  MathFunctions.cpp
+C:\Users\AJXS\Documents\VisualUefi\WinOS\Kernel\CrucialInternals\MathFunctions.cpp(16,11): warning C4101: 'bits': unreferenced local variable
+  Drivers.cpp
   main.cpp
-C:\Users\AJXS\Documents\VisualUefi\WinOS\Kernel\main.cpp(114,34): warning C4018: '<': signed/unsigned mismatch
-C:\Users\AJXS\Documents\VisualUefi\WinOS\Kernel\main.cpp(114,79): warning C4018: '<': signed/unsigned mismatch
-  GDT.obj : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
-LINK : warning LNK4216: Exported entry point KernelMain
-     Creating library C:\Users\AJXS\Documents\VisualUefi\WinOS\x64\Release\WinOS-Kernel.lib and object C:\Users\AJXS\Documents\VisualUefi\WinOS\x64\Release\WinOS-Kernel.exp
-  Generating code
-  Finished generating code
-  WinOS-Kernel.vcxproj -> C:\Users\AJXS\Documents\VisualUefi\WinOS\x64\Release\WinOS-Kernel.bin
-          1 file(s) copied.
+C:\Users\AJXS\Documents\VisualUefi\WinOS\Kernel\main.cpp(115,34): warning C4018: '<': signed/unsigned mismatch
+C:\Users\AJXS\Documents\VisualUefi\WinOS\Kernel\main.cpp(115,79): warning C4018: '<': signed/unsigned mismatch
