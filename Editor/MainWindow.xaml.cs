@@ -315,6 +315,7 @@ namespace WinOS_Editor
             TextBox editor = new()
             {
                 Name = "Code",
+                Text = document.Content,
                 TextWrapping = TextWrapping.Wrap,
                 Margin = new(24,4,4,4),
                 Background = SystemColors.DesktopBrush,

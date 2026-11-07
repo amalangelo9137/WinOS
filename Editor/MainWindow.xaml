@@ -37,7 +37,7 @@
                 <Grid>
                     <TabControl x:Name="EditorTabs" Background="{DynamicResource {x:Static SystemColors.AccentColorDark3BrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.AccentColorDark1BrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.AccentColorBrushKey}}" Margin="0,0,2,0" SelectionChanged="EditorTabsSelectionChanged">
                     </TabControl>
-                    <Menu Width="20" Height="20" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,1,4,0" Background="{DynamicResource {x:Static SystemColors.AccentColorBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.AccentColorDark3BrushKey}}" FontWeight="Bold">
+                    <Menu Width="20" Height="20" HorizontalAlignment="Right" VerticalAlignment="Top" Background="{DynamicResource {x:Static SystemColors.AccentColorBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.AccentColorDark3BrushKey}}">
                         <MenuItem Header="⋮" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Height="20" Width="20">
                             <MenuItem Header="Save" Click="SaveActiveDocumentToolbarClick"/>
                             <MenuItem Header="Save All" Click="SaveAllDocumentsToolbarClick"/>
@@ -66,7 +66,7 @@
                                 <SolidColorBrush Color="#FFF0F0F0" Opacity="0"/>
                             </Menu.Background>
                             <MenuItem Header="X" Width="20" Height="20" FontWeight="Bold"/>
-                            <MenuItem Height="20" Header="⋮" Width="20" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold">
+                            <MenuItem Height="20" Header="⋮" Width="20" HorizontalAlignment="Right" VerticalAlignment="Center">
                                 <MenuItem Header="New..." HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
                                     <MenuItem Header="Folder"/>
                                     <MenuItem Header="Source File"/>
@@ -87,7 +87,7 @@
                         <TextBlock TextWrapping="Wrap" Text="&#x9;Project Hierarchy" FontWeight="Bold" TextDecorations="Underline" Margin="0,4,0,0"/>
                         <TreeView x:Name="ProjectTree" Grid.Row="1" BorderBrush="#FF828790" Background="{DynamicResource {x:Static SystemColors.AccentColorDark2BrushKey}}" MouseDoubleClick="ProjectTreeDoubleClick"/>
                         <TextBox x:Name="ProjectSearch" Grid.Row="2" Background="{DynamicResource {x:Static SystemColors.AccentColorDark1BrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.AccentColorDark2BrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.AccentColorDark3BrushKey}}"/>
-                        <Menu Width="40" Height="20" HorizontalAlignment="Right" VerticalAlignment="Center" FontWeight="Bold">
+                        <Menu Width="40" Height="20" HorizontalAlignment="Right" VerticalAlignment="Center">
                             <Menu.Background>
                                 <SolidColorBrush Color="#FFF0F0F0" Opacity="0"/>
                             </Menu.Background>

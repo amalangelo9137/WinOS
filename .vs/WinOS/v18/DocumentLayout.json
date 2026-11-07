@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\AJXS\\Documents\\VisualUefi\\WinOS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{72CE9C10-CD68-40D2-8B13-28ACBED8A2BB}|Editor\\WinOS-Editor.csproj|c:\\users\\ajxs\\documents\\visualuefi\\winos\\editor\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{72CE9C10-CD68-40D2-8B13-28ACBED8A2BB}|Editor\\WinOS-Editor.csproj|solutionrelative:editor\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{72CE9C10-CD68-40D2-8B13-28ACBED8A2BB}|Editor\\WinOS-Editor.csproj|c:\\users\\ajxs\\documents\\visualuefi\\winos\\editor\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{72CE9C10-CD68-40D2-8B13-28ACBED8A2BB}|Editor\\WinOS-Editor.csproj|solutionrelative:editor\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72CE9C10-CD68-40D2-8B13-28ACBED8A2BB}|Editor\\WinOS-Editor.csproj|c:\\users\\ajxs\\documents\\visualuefi\\winos\\editor\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{72CE9C10-CD68-40D2-8B13-28ACBED8A2BB}|Editor\\WinOS-Editor.csproj|solutionrelative:editor\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{72CE9C10-CD68-40D2-8B13-28ACBED8A2BB}|Editor\\WinOS-Editor.csproj|c:\\users\\ajxs\\documents\\visualuefi\\winos\\editor\\toolchains\\toolchainmgr.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -66,29 +66,29 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\AJXS\\Documents\\VisualUefi\\WinOS\\Editor\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Editor\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\AJXS\\Documents\\VisualUefi\\WinOS\\Editor\\MainWindow.xaml*",
-              "RelativeToolTip": "Editor\\MainWindow.xaml*",
+              "ToolTip": "C:\\Users\\AJXS\\Documents\\VisualUefi\\WinOS\\Editor\\MainWindow.xaml",
+              "RelativeToolTip": "Editor\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2026-10-29T08:19:12.755Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\AJXS\\Documents\\VisualUefi\\WinOS\\Editor\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Editor\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\AJXS\\Documents\\VisualUefi\\WinOS\\Editor\\MainWindow.xaml.cs",
-              "RelativeToolTip": "Editor\\MainWindow.xaml.cs",
-              "ViewState": "AgIAADEBAABA34MPPvgcwEIBAAAnAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\AJXS\\Documents\\VisualUefi\\WinOS\\Editor\\MainWindow.xaml.cs*",
+              "RelativeToolTip": "Editor\\MainWindow.xaml.cs*",
+              "ViewState": "AgIAADEBAAAAAAAAAAAcwD0BAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-29T08:19:11.349Z",
               "EditorCaption": ""
