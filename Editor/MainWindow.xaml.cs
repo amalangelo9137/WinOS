@@ -236,7 +236,7 @@ namespace WinOS_Editor
         private bool SaveProject()
         {
             // js save to existing if path is already there
-            if (CurrentProjectPath != string.Empty && CurrentProject != null)
+            if (!string.IsNullOrEmpty(CurrentProjectPath) && CurrentProject != null)
             {
                 UpdateWorkspaceState();
                 return ProjectManager.Save(CurrentProject, CurrentProjectPath);
