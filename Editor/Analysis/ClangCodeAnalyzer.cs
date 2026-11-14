@@ -146,13 +146,15 @@ namespace WinOS_Editor.Analysis
             if (string.IsNullOrEmpty(previousDeclId))
                 previousDeclId = null;
 
+            (int line, int column) = GetSourcePosition(node, sourceText);
+
             Symbol symbol = new()
             {
                 Name = name,
                 Kind = symbolKind.Value,
                 FilePath = sourceFile,
-                Line = GetLocationNumber(node, "line"),
-                Column = GetLocationNumber(node, "col"),
+                Line = line,
+                Column = column,
                 Summary = GetDocumentation(node),
                 IsDefinition = IsDefinition(node, clangKind),
                 ClangId = clangId,
@@ -457,12 +459,23 @@ namespace WinOS_Editor.Analysis
             }
 
             if (IsCallable(kind))
-                return HasFunctionBody(node);
+            {
+                return HasFunctionBody(node) ||
+                       !string.IsNullOrEmpty(GetString(node, "explicitlyDefaulted")) ||
+                       node.TryGetProperty("isDeleted", out JsonElement deleted) &&
+                       deleted.ValueKind == JsonValueKind.True;
+            }
 
             if (kind == "VarDecl")
             {
                 bool hasInitializer = node.TryGetProperty("init", out _);
                 bool isExtern = GetString(node, "storageClass") == "extern";
+                bool isStaticDataMember =
+                    node.TryGetProperty("isStaticDataMember", out JsonElement staticMember) &&
+                    staticMember.ValueKind == JsonValueKind.True;
+
+                if (isStaticDataMember && !hasInitializer)
+                    return false;
 
                 return hasInitializer || !isExtern;
             }
@@ -623,6 +636,41 @@ namespace WinOS_Editor.Analysis
             return string.Equals(
                 fullPath, sourceFile,
                 StringComparison.OrdinalIgnoreCase);
+        }
+
+        private static (int Line, int Column) GetSourcePosition(
+            JsonElement node, string sourceText)
+        {
+            int line = GetLocationNumber(node, "line");
+            int column = GetLocationNumber(node, "col");
+
+            if (line > 0 && column > 0)
+                return (line, column);
+
+            if (!node.TryGetProperty("loc", out JsonElement location))
+                return (line, column);
+
+            int offset = GetOffset(location);
+            if (offset < 0 || offset > sourceText.Length)
+                return (line, column);
+
+            int calculatedLine = 1;
+            int lastLineStart = 0;
+
+            for (int i = 0; i < offset; i++)
+            {
+                if (sourceText[i] == '\\n')
+                {
+                    calculatedLine++;
+                    lastLineStart = i + 1;
+                }
+            }
+
+            int calculatedColumn = offset - lastLineStart + 1;
+
+            return (
+                line > 0 ? line : calculatedLine,
+                column > 0 ? column : calculatedColumn);
         }
 
         private static int GetLocationNumber(
