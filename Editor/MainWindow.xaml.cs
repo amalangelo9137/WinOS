@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using WinOS_Editor.toolchains;
+using WinOS_Editor.Analysis;
 
 namespace WinOS_Editor
 {
@@ -20,6 +21,11 @@ namespace WinOS_Editor
 
         private readonly ToolchainManager _toolchainManager = new();
 
+        private ICodeAnalyzer? _codeAnalyzer;
+
+        private readonly Dictionary<string, List<Symbol>> _fileSymbols =
+            new(StringComparer.OrdinalIgnoreCase);
+
         public MainWindow()
         {
             InitializeComponent();
@@ -28,13 +34,18 @@ namespace WinOS_Editor
                 OpenProject(App.FilePath);
 
             _toolchainManager.DetectLLVM();
+
+            if (_toolchainManager.IsAvailable && _toolchainManager.LLVMPath is string llvmPath)
+                _codeAnalyzer = new ClangCodeAnalyzer(llvmPath);
         }
 
         // Props set;
         public void FrameworkNameSet(string content)
         { CurrentProject?.Name = content; }
+
         public void FrameworkVersionSet(string content)
         { CurrentProject?.Version = content; }
+
         public void FrameworkDescriptionSet(string content)
         { CurrentProject?.Description = content; }
 
@@ -56,7 +67,6 @@ namespace WinOS_Editor
 
             window.ShowDialog();
         }
-
 
         private bool PrepareForProjectSwitch()
         {
@@ -185,6 +195,7 @@ namespace WinOS_Editor
                 // write current project and its path
                 CurrentProjectPath = path;
                 CurrentProject = tmp;
+                _ = AnalyzeProjectAsync();
 
                 // rebuild project hierarchy
                 RefreshProjectTree();
@@ -221,6 +232,7 @@ namespace WinOS_Editor
                 }
             }
         }
+
         // overload 2 : for button
         private void OpenProject(object? sender, RoutedEventArgs e)
         {
@@ -273,6 +285,7 @@ namespace WinOS_Editor
                 }
             }
         }
+
         // overload 2 : returns nothing, for button
         private void SaveProject(object? sender, RoutedEventArgs? e) { SaveProject(); }
 
@@ -287,22 +300,31 @@ namespace WinOS_Editor
         }
 
         // tree double click
+
         private void FWTreeDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
+            if (FWTree.SelectedItem is not TreeViewItem item)
+                return;
 
+            if (item.Tag is Symbol symbol)
+                NavigateToSymbol(symbol);
         }
+
         private void ProjectTreeDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             if (ProjectTree.SelectedItem is not TreeViewItem item)
                 return;
 
-            if (item.Tag is not string filePath)
-                return;
+            if (item.Tag is string filePath)
+            {
+                if (File.Exists(filePath))
+                    OpenDocumentInEditor(filePath);
 
-            if (!File.Exists(filePath))
                 return;
+            }
 
-            OpenDocumentInEditor(filePath);
+            if (item.Tag is Symbol symbol)
+                NavigateToSymbol(symbol);
         }
 
         private void CreateEditorTab(Document document)
@@ -317,7 +339,7 @@ namespace WinOS_Editor
                 Name = "Code",
                 Text = document.Content,
                 TextWrapping = TextWrapping.Wrap,
-                Margin = new(24,4,4,4),
+                Margin = new(24, 4, 4, 4),
                 Background = SystemColors.DesktopBrush,
                 Foreground = new SolidColorBrush(Color.FromRgb(255, 255, 255)),
                 BorderBrush = SystemColors.AccentColorDark2Brush,
@@ -407,6 +429,7 @@ namespace WinOS_Editor
 
         // editor toolbar button click functions
         private void SaveActiveDocumentToolbarClick(object sender, RoutedEventArgs e) { SaveActiveDocument(); }
+
         private void SaveAllDocumentsToolbarClick(object sender, RoutedEventArgs e)
         {
             try
@@ -425,6 +448,7 @@ namespace WinOS_Editor
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
         private void CloseActiveTabToolbarClick(object sender, RoutedEventArgs e)
         {
             if (EditorTabs.SelectedItem is not TabItem tab)
@@ -440,6 +464,7 @@ namespace WinOS_Editor
 
             EditorTabs.Items.Remove(tab);
         }
+
         private void CloseAllTabsToolbarClick(object sender, RoutedEventArgs e)
         {
             foreach (TabItem tab in EditorTabs.Items
@@ -504,14 +529,38 @@ namespace WinOS_Editor
                 string fullPath = Path.GetFullPath(
                     Path.Combine(projectDirectory, source));
 
-                TreeViewItem item = new()
+                TreeViewItem fileItem = new()
                 {
                     Header = Path.GetFileName(source),
                     Tag = fullPath
                 };
 
-                ProjectTree.Items.Add(item);
+                if (_fileSymbols.TryGetValue(fullPath, out List<Symbol>? symbols))
+                {
+                    foreach (Symbol symbol in symbols)
+                    {
+                        fileItem.Items.Add(CreateSymbolTreeItem(symbol));
+                    }
+                }
+
+                ProjectTree.Items.Add(fileItem);
             }
+        }
+
+        private TreeViewItem CreateSymbolTreeItem(Symbol symbol)
+        {
+            TreeViewItem item = new()
+            {
+                Header = $"{symbol.Kind}: {symbol.Name}",
+                Tag = symbol
+            };
+
+            foreach (Symbol child in symbol.Children)
+            {
+                item.Items.Add(CreateSymbolTreeItem(child));
+            }
+
+            return item;
         }
 
         // project hierarchy > add
@@ -543,6 +592,7 @@ namespace WinOS_Editor
             }
 
             RefreshProjectTree();
+            _ = AnalyzeProjectAsync();
         }
 
         private void UpdateWorkspaceState()
@@ -612,6 +662,80 @@ namespace WinOS_Editor
                 $"Output:\n{result.Output}\n\n" +
                 $"Errors:\n{result.Errors}"
             );
+        }
+
+        private async Task AnalyzeProjectAsync()
+        {
+            if (_codeAnalyzer == null || CurrentProject == null ||
+                string.IsNullOrEmpty(CurrentProjectPath))
+                return;
+
+            _fileSymbols.Clear();
+
+            string? projectDirectory = Path.GetDirectoryName(CurrentProjectPath);
+
+            if (projectDirectory == null)
+                return;
+
+            foreach (string source in CurrentProject.SourceFiles)
+            {
+                string extension = Path.GetExtension(source).ToLowerInvariant();
+
+                // ClangCodeAnalyzer currently analyzes C++ files.
+                if (extension is not (".cpp" or ".cc" or ".cxx"))
+                    continue;
+
+                string fullPath = Path.GetFullPath(
+                    Path.Combine(projectDirectory, source));
+
+                if (!File.Exists(fullPath))
+                    continue;
+
+                try
+                {
+                    List<Symbol> symbols =
+                        await _codeAnalyzer.AnalyzeFileAsync(fullPath);
+
+                    _fileSymbols[fullPath] = symbols;
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(
+                        $"Analysis failed for {fullPath}: {ex.Message}");
+                }
+            }
+
+            RefreshProjectTree();
+        }
+
+        private void NavigateToSymbol(Symbol symbol)
+        {
+            if (string.IsNullOrEmpty(symbol.FilePath) ||
+                !File.Exists(symbol.FilePath))
+                return;
+
+            OpenDocumentInEditor(symbol.FilePath);
+
+            // Find the editor belonging to the opened document.
+            if (EditorTabs.SelectedItem is not TabItem tab ||
+                tab.Content is not TextBox editor)
+                return;
+
+            string[] lines = editor.Text.Split('\n');
+
+            int line = Math.Clamp(symbol.Line - 1, 0, lines.Length - 1);
+            int column = Math.Clamp(symbol.Column - 1, 0, lines[line].Length);
+
+            int offset = 0;
+
+            for (int i = 0; i < line; i++)
+                offset += lines[i].Length + 1;
+
+            offset += column;
+
+            editor.Focus();
+            editor.CaretIndex = Math.Min(offset, editor.Text.Length);
+            editor.ScrollToLine(line);
         }
     }
 }

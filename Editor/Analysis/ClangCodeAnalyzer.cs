@@ -659,7 +659,7 @@ namespace WinOS_Editor.Analysis
 
             for (int i = 0; i < offset; i++)
             {
-                if (sourceText[i] == '\\n')
+                if (sourceText[i] == '\n')
                 {
                     calculatedLine++;
                     lastLineStart = i + 1;

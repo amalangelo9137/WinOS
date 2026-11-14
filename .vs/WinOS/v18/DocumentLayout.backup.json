@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\AJXS\\Documents\\VisualUefi\\WinOS\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{72CE9C10-CD68-40D2-8B13-28ACBED8A2BB}|Editor\\WinOS-Editor.csproj|c:\\users\\ajxs\\documents\\visualuefi\\winos\\editor\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{72CE9C10-CD68-40D2-8B13-28ACBED8A2BB}|Editor\\WinOS-Editor.csproj|solutionrelative:editor\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{72CE9C10-CD68-40D2-8B13-28ACBED8A2BB}|Editor\\WinOS-Editor.csproj|c:\\users\\ajxs\\documents\\visualuefi\\winos\\editor\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{72CE9C10-CD68-40D2-8B13-28ACBED8A2BB}|Editor\\WinOS-Editor.csproj|solutionrelative:editor\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{72CE9C10-CD68-40D2-8B13-28ACBED8A2BB}|Editor\\WinOS-Editor.csproj|c:\\users\\ajxs\\documents\\visualuefi\\winos\\editor\\analysis\\clangcodeanalyzer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{72CE9C10-CD68-40D2-8B13-28ACBED8A2BB}|Editor\\WinOS-Editor.csproj|solutionrelative:editor\\analysis\\clangcodeanalyzer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -13,14 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{863F20AB-344D-48FD-9982-15EF853EBF2E}|EFI\\WinOS-EFI.vcxproj|C:\\Users\\AJXS\\Documents\\VisualUefi\\WinOS\\EFI\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{863F20AB-344D-48FD-9982-15EF853EBF2E}|EFI\\WinOS-EFI.vcxproj|solutionrelative:EFI\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{72CE9C10-CD68-40D2-8B13-28ACBED8A2BB}|Editor\\WinOS-Editor.csproj|c:\\users\\ajxs\\documents\\visualuefi\\winos\\editor\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{72CE9C10-CD68-40D2-8B13-28ACBED8A2BB}|Editor\\WinOS-Editor.csproj|solutionrelative:editor\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{72CE9C10-CD68-40D2-8B13-28ACBED8A2BB}|Editor\\WinOS-Editor.csproj|c:\\users\\ajxs\\documents\\visualuefi\\winos\\editor\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{72CE9C10-CD68-40D2-8B13-28ACBED8A2BB}|Editor\\WinOS-Editor.csproj|solutionrelative:editor\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{72CE9C10-CD68-40D2-8B13-28ACBED8A2BB}|Editor\\WinOS-Editor.csproj|c:\\users\\ajxs\\documents\\visualuefi\\winos\\editor\\analysis\\icodeanalyzer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -38,11 +38,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "main.c",
               "DocumentMoniker": "C:\\Users\\AJXS\\Documents\\VisualUefi\\WinOS\\EFI\\main.c",
               "RelativeDocumentMoniker": "EFI\\main.c",
@@ -55,36 +55,38 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\AJXS\\Documents\\VisualUefi\\WinOS\\Editor\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Editor\\MainWindow.xaml",
               "ToolTip": "C:\\Users\\AJXS\\Documents\\VisualUefi\\WinOS\\Editor\\MainWindow.xaml",
               "RelativeToolTip": "Editor\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-10-29T08:19:12.755Z"
+              "WhenOpened": "2026-10-29T08:19:12.755Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\AJXS\\Documents\\VisualUefi\\WinOS\\Editor\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Editor\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\AJXS\\Documents\\VisualUefi\\WinOS\\Editor\\MainWindow.xaml.cs",
               "RelativeToolTip": "Editor\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAOYAAACA//9bon0uwO8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAADIBAABgZmZmZmYqwEgBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-29T08:19:11.349Z"
+              "WhenOpened": "2026-10-29T08:19:11.349Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "ClangCodeAnalyzer.cs",
               "DocumentMoniker": "C:\\Users\\AJXS\\Documents\\VisualUefi\\WinOS\\Editor\\Analysis\\ClangCodeAnalyzer.cs",
               "RelativeDocumentMoniker": "Editor\\Analysis\\ClangCodeAnalyzer.cs",
               "ToolTip": "C:\\Users\\AJXS\\Documents\\VisualUefi\\WinOS\\Editor\\Analysis\\ClangCodeAnalyzer.cs",
               "RelativeToolTip": "Editor\\Analysis\\ClangCodeAnalyzer.cs",
-              "ViewState": "AgIAAIEAAAAAbMWou64vwI4AAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAIYCAAAAAAAAAAAMwJICAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-07T19:26:02.788Z",
               "EditorCaption": ""
@@ -115,13 +117,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Symbol.cs",
               "DocumentMoniker": "C:\\Users\\AJXS\\Documents\\VisualUefi\\WinOS\\Editor\\Analysis\\Symbol.cs",
               "RelativeDocumentMoniker": "Editor\\Analysis\\Symbol.cs",
               "ToolTip": "C:\\Users\\AJXS\\Documents\\VisualUefi\\WinOS\\Editor\\Analysis\\Symbol.cs",
               "RelativeToolTip": "Editor\\Analysis\\Symbol.cs",
-              "ViewState": "AgIAACIAAAAAANa2b0ikvyEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACYAAADAzMzMzMwmwDMAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-01T11:17:33.592Z",
               "EditorCaption": ""
