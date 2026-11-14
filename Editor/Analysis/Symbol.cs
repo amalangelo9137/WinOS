@@ -43,6 +43,9 @@ namespace WinOS_Editor.Analysis
 
         // Declaration information
         public bool IsDefinition { get; set; }
+
+        // Clang declaration identity
+        public string? ClangId { get; set; }
     }
 
     public sealed class SymbolParameter

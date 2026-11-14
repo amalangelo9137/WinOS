@@ -2,6 +2,7 @@
 using System.IO;
 using System.Text;
 using System.Text.Json;
+using System.Xml.Linq;
 
 namespace WinOS_Editor.Analysis
 {
@@ -135,12 +136,19 @@ namespace WinOS_Editor.Analysis
             return symbol;
         }
 
+        private static SymbolKind GetRecordKind(string node)
+        {
+            return node == "struct"
+                ? SymbolKind.Struct
+                : SymbolKind.Class;
+        }
+
         private static SymbolKind? GetSymbolKind(string kind)
         {
             return kind switch
             {
                 "NamespaceDecl" => SymbolKind.Namespace,
-                "CXXRecordDecl" or "RecordDecl" => null,
+                "CXXRecordDecl" or "RecordDecl" => GetRecordKind(kind),
                 "FunctionDecl" => SymbolKind.Function,
                 "CXXMethodDecl" => SymbolKind.Method,
                 "CXXConstructorDecl" => SymbolKind.Constructor,
@@ -307,20 +315,103 @@ namespace WinOS_Editor.Analysis
             }
         }
 
+        private static bool HasFunctionBody(JsonElement node)
+        {
+            if (!node.TryGetProperty("inner", out JsonElement inner)
+                || inner.ValueKind != JsonValueKind.Array)
+            {
+                return false;
+            }
+
+            foreach (JsonElement child in inner.EnumerateArray())
+            {
+                string? kind = GetString(child, "kind");
+
+                if (kind is "CompoundStmt"
+                    or "CXXTryStmt"
+                    or "CoroutineBodyStmt")
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private static bool HasInnerKind(JsonElement node, string targetKind)
+        {
+            if (!node.TryGetProperty("inner", out JsonElement inner)
+                || inner.ValueKind != JsonValueKind.Array)
+            {
+                return false;
+            }
+
+            foreach (JsonElement child in inner.EnumerateArray())
+            {
+                if (GetString(child, "kind") == targetKind)
+                    return true;
+            }
+
+            return false;
+        }
+
         private static bool IsDefinition(JsonElement node, string kind)
         {
-            if (kind is "NamespaceDecl" or "EnumConstantDecl")
+            // Namespaces always represent definitions.
+            if (kind == "NamespaceDecl")
                 return true;
 
-            if (node.TryGetProperty(
-                "completeDefinition", out JsonElement complete))
-                return complete.ValueKind == JsonValueKind.True;
+            // Enum members are actual declared members.
+            if (kind == "EnumConstantDecl")
+                return true;
 
+            // A record is complete only when Clang marks it as such.
+            if (kind is "CXXRecordDecl" or "RecordDecl")
+            {
+                return node.TryGetProperty("completeDefinition", out JsonElement complete)
+                    && complete.ValueKind == JsonValueKind.True;
+            }
+
+            // An enum is defined when it contains its enumerators.
+            if (kind == "EnumDecl")
+            {
+                return HasInnerKind(node, "EnumConstantDecl");
+            }
+
+            // Functions are definitions when they contain a body.
+            if (kind is "FunctionDecl"
+                or "CXXMethodDecl"
+                or "CXXConstructorDecl"
+                or "CXXDestructorDecl")
+            {
+                return HasFunctionBody(node);
+            }
+
+            // An extern variable without an initializer is only a declaration.
+            if (kind == "VarDecl")
+            {
+                bool hasInitializer =
+                    node.TryGetProperty("init", out _);
+
+                bool isExtern =
+                    GetString(node, "storageClass") == "extern";
+
+                return hasInitializer || !isExtern;
+            }
+
+            // Fields belong to their containing record definition.
+            if (kind == "FieldDecl")
+                return true;
+
+            // Use Clang's explicit answer when available.
             if (node.TryGetProperty(
-                "isThisDeclarationADefinition", out JsonElement definition))
+                "isThisDeclarationADefinition",
+                out JsonElement definition))
+            {
                 return definition.ValueKind == JsonValueKind.True;
+            }
 
-            return kind is not "CXXRecordDecl" and not "RecordDecl";
+            return false;
         }
 
         private static bool IsImplicit(JsonElement node)
