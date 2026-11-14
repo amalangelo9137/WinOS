@@ -461,7 +461,7 @@ EFI_STATUS EFIAPI UefiMain(IN EFI_HANDLE ImageHandle, IN EFI_SYSTEM_TABLE* Syste
 
 	gST->ConOut->ClearScreen(gST->ConOut);
 
-	Print(L"==> WinOS UEFI Loader v1.4 (Fun Edition) <==\n");
+	Print(L"==> WinOS UEFI Loader v1.4 Patch 1 (Debug Edition) <==\n");
 
 	//
 	// ------------------------------------------------------------

@@ -7,6 +7,8 @@ namespace WinOS_Editor.Analysis
         Struct,
         Function,
         Method,
+        Constructor,
+        Destructor,
         Variable,
         Field,
         Property,
@@ -18,22 +20,29 @@ namespace WinOS_Editor.Analysis
     {
         // Identity
         public string Name { get; set; } = "";
+
         public SymbolKind Kind { get; set; }
 
-        // Documentation written by the developer
+        // Developer-written documentation
         public string Summary { get; set; } = "";
 
-        // Function information
+        // Type information
         public string? ReturnType { get; set; }
+
+        // Function parameters
         public List<SymbolParameter> Parameters { get; set; } = [];
 
-        // Hierarchical structure
+        // Hierarchy
         public List<Symbol> Children { get; set; } = [];
 
         // Source location
         public string FilePath { get; set; } = "";
+
         public int Line { get; set; }
         public int Column { get; set; }
+
+        // Declaration information
+        public bool IsDefinition { get; set; }
     }
 
     public sealed class SymbolParameter
