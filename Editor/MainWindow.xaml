@@ -59,7 +59,7 @@
                             <RowDefinition Height="20"/>
                         </Grid.RowDefinitions>
                         <TextBlock TextWrapping="Wrap" TextDecorations="Underline" FontWeight="Bold" Margin="0,4,0,0"><Run Text="&#x9;" TextDecorations="Underline"/><Run Text="FW Hierarchy"/></TextBlock>
-                        <TreeView x:Name="FWTree" Grid.Row="1" BorderBrush="#FF828790" Background="{DynamicResource {x:Static SystemColors.AccentColorDark2BrushKey}}" MouseDoubleClick="FWTreeDoubleClick"/>
+                        <TreeView x:Name="FWTree" Grid.Row="1" BorderBrush="#FF828790" Background="{DynamicResource {x:Static SystemColors.AccentColorDark2BrushKey}}" MouseDoubleClick="FWTreeDoubleClick" Foreground="{DynamicResource {x:Static SystemColors.AccentColorLight3BrushKey}}"/>
                         <TextBox x:Name="FWSearch" Grid.Row="2" Background="{DynamicResource {x:Static SystemColors.AccentColorDark1BrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.AccentColorDark2BrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.AccentColorDark3BrushKey}}"/>
                         <Menu Width="40" Height="20" HorizontalAlignment="Right" VerticalAlignment="Center">
                             <Menu.Background>
@@ -85,7 +85,7 @@
                             <RowDefinition Height="20"/>
                         </Grid.RowDefinitions>
                         <TextBlock TextWrapping="Wrap" Text="&#x9;Project Hierarchy" FontWeight="Bold" TextDecorations="Underline" Margin="0,4,0,0"/>
-                        <TreeView x:Name="ProjectTree" Grid.Row="1" BorderBrush="#FF828790" Background="{DynamicResource {x:Static SystemColors.AccentColorDark2BrushKey}}" MouseDoubleClick="ProjectTreeDoubleClick"/>
+                        <TreeView x:Name="ProjectTree" Grid.Row="1" BorderBrush="#FF828790" Background="{DynamicResource {x:Static SystemColors.AccentColorDark2BrushKey}}" MouseDoubleClick="ProjectTreeDoubleClick" Foreground="{DynamicResource {x:Static SystemColors.AccentColorLight3BrushKey}}"/>
                         <TextBox x:Name="ProjectSearch" Grid.Row="2" Background="{DynamicResource {x:Static SystemColors.AccentColorDark1BrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.AccentColorDark2BrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.AccentColorDark3BrushKey}}"/>
                         <Menu Width="40" Height="20" HorizontalAlignment="Right" VerticalAlignment="Center">
                             <Menu.Background>

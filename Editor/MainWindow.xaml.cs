@@ -547,6 +547,97 @@ namespace WinOS_Editor
             }
         }
 
+        private void RefreshFrameworkTree()
+        {
+            FWTree.Items.Clear();
+
+            List<Symbol> mergedSymbols = [];
+
+            foreach (List<Symbol> symbols in _fileSymbols.Values)
+            {
+                MergeSymbolLists(mergedSymbols, symbols);
+            }
+
+            foreach (Symbol symbol in mergedSymbols)
+            {
+                FWTree.Items.Add(CreateSymbolTreeItem(symbol));
+            }
+        }
+
+        private static void MergeSymbolLists(
+            List<Symbol> target,
+            List<Symbol> incoming)
+        {
+            foreach (Symbol symbol in incoming)
+            {
+                // Only merge named containers.
+                // Anonymous namespaces must remain separate.
+                bool canMerge =
+                    symbol.Name.Length > 0 &&
+                    symbol.Kind is
+                        SymbolKind.Namespace or
+                        SymbolKind.Class or
+                        SymbolKind.Struct or
+                        SymbolKind.Union or
+                        SymbolKind.Enum;
+
+                if (!canMerge)
+                {
+                    target.Add(CloneSymbol(symbol));
+                    continue;
+                }
+
+                Symbol? existing = target.FirstOrDefault(s =>
+                    s.Kind == symbol.Kind &&
+                    s.Name == symbol.Name);
+
+                if (existing == null)
+                {
+                    target.Add(CloneSymbol(symbol));
+                }
+                else
+                {
+                    MergeSymbolLists(existing.Children, symbol.Children);
+                }
+            }
+        }
+
+        private static Symbol CloneSymbol(Symbol source)
+        {
+            Symbol clone = new()
+            {
+                Name = source.Name,
+                Kind = source.Kind,
+                Summary = source.Summary,
+                Type = source.Type,
+                ReturnType = source.ReturnType,
+                FilePath = source.FilePath,
+                Line = source.Line,
+                Column = source.Column,
+                IsDefinition = source.IsDefinition,
+                ClangId = source.ClangId,
+                PreviousDeclId = source.PreviousDeclId,
+                MangledName = source.MangledName,
+                Signature = source.Signature,
+                Parameters = source.Parameters
+                    .Select(p => new SymbolParameter
+                    {
+                        Name = p.Name,
+                        Type = p.Type,
+                        DefaultValue = p.DefaultValue
+                    })
+                    .ToList(),
+                ClangIds = [.. source.ClangIds]
+            };
+
+            foreach (Symbol child in source.Children)
+            {
+                clone.Children.Add(CloneSymbol(child));
+            }
+
+            return clone;
+        }
+
         private TreeViewItem CreateSymbolTreeItem(Symbol symbol)
         {
             TreeViewItem item = new()
@@ -706,6 +797,7 @@ namespace WinOS_Editor
             }
 
             RefreshProjectTree();
+            RefreshFrameworkTree();
         }
 
         private void NavigateToSymbol(Symbol symbol)
