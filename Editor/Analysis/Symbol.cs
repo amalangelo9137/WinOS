@@ -14,7 +14,10 @@ namespace WinOS_Editor.Analysis
         Field,
         Property,
         Enum,
-        EnumMember
+        EnumMember,
+        Typedef,
+        TypeAlias,
+        Using
     }
 
     public sealed class Symbol
